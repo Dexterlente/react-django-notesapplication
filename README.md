@@ -1,2 +1,2 @@
 # reactproject
-notes react frontend django backend
+with django backend
