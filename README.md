@@ -1,5 +1,5 @@
 # reactproject
 with django backend
 
-useState
-useEffect
+`frontend` - react folder
+`react` - django folder
