@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg'
 import { Link } from 'react-router-dom'
 
-const NotePage = ({ match }) => {
+const NotePage = ({ match, history }) => {
     let noteId = match.params.id
     let [note, setNote] = useState(null)
 
@@ -15,17 +15,30 @@ const NotePage = ({ match }) => {
         let data = await response.json()
         setNote(data)
     }
+    let updateNote = async () => {
+        fetch(`/post/notes/${noteId}/update/`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(note)
+        })
+    }
 
+    let handleSubmit = () => {
+        updateNote()
+        history.push('/')
+    }
     return (
         <div className='note'>
             <div className='note-header'>
                 <h3>
-                    <Link to="/">
-                        <ArrowLeft />
-                    </Link>
+
+                        <ArrowLeft onClick={handleSubmit} />
+
                 </h3>
             </div>
-            <textarea defaultValue={note?.body}></textarea>
+            <textarea onChange={(e) => {setNote({...note, 'body':e.target.value }) }} defaultValue={note?.body}></textarea>
         </div>
     )
 }
