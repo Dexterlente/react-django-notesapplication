@@ -20,8 +20,8 @@ let getContent = (note) => {
   let content = note.body.replaceAll('\n', ' ')
   content = content.replaceAll(title, '')
 
-  if (content.length > 45) {
-      return content.slice(0, 45) + '...'
+  if (content.length > 40) {
+      return content.slice(0, 40) + '...'
   } else {
       return content
   }

@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('post/', include('post.urls'))
-
+    path('post/', include('post.urls')),
+    #react render url
+    path('', TemplateView.as_view(template_name='index.html')),
 ]
