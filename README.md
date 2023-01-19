@@ -1,5 +1,4 @@
-# reactproject
-with django backend
+# Reactproject
 #### Notes App
 ###### Notes application with basic CRUD functionalities
 ---
@@ -9,3 +8,4 @@ with django backend
 ---
 ##### How to run the app
 cd to react folder
+python manage.py runserver
