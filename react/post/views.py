@@ -73,7 +73,7 @@ def updateNote(request, pk):
     if serializer.is_valid():
         serializer.save()
 
-    return Response(serializer.data)
+    return serializer.data
 
 @api_view(['DELETE'])
 def deleteNote(request, pk):
